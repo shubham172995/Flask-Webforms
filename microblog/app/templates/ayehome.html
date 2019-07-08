@@ -1,0 +1,30 @@
+<html>
+    <head>
+        {% if title %}
+        <title>{{ title }}Aye Finance Home</title>
+        {% else %}
+        <title>Welcome to Aye!!</title>
+        {% endif %}
+    </head>
+    <body>
+        <div>
+            Microblog:
+            <a href="/ayehome">Aye Finance Home</a>
+            <a href="/ayelogin">Aye Finance Login</a>
+	    <a href="/ayeregister">Customer Registration</a>
+	    <a href="/activitychecker">Change Activity Status</a>
+	    <a href="/confirm">Confirmation</a>
+        </div>
+        <hr>
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        <ul>
+            {% for message in messages %}
+            <li>{{ message }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+        {% endwith %}
+        {% block content %}{% endblock %}
+    </body>
+</html>
